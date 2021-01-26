@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <span>{{persona?.id? 'Editar': 'Nueva'}} Persona</span>
+  <span class="spacer"></span>
+  <button *ngIf="persona?.id" (click)="onDelete()" mat-icon-button>
+    <mat-icon>delete</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-progress-bar *ngIf="cargando" color="warn" mode="indeterminate"></mat-progress-bar>
+
+<form *ngIf="formulario" class="formulario" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <mat-form-field class="campo-formulario">
+    <mat-label>Codigo</mat-label>
+    <input matInput placeholder="Codigo" formControlName="codigo" >
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" formControlName="nombre">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Dirección</mat-label>
+    <input matInput placeholder="Dirección" formControlName="direccion">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Población</mat-label>
+    <input matInput placeholder="Población" formControlName="poblacion">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Codigo postal</mat-label>
+    <input matInput placeholder="Codigo postal" formControlName="codigoPostal">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Ciudad</mat-label>
+    <input matInput placeholder="Ciudad" formControlName="ciudad">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Telefono</mat-label>
+    <input matInput placeholder="Telefono" formControlName="telefono">
+  </mat-form-field>
+
+  <mat-form-field class="campo-formulario">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="campo-formulario" type="submit">{{persona?.id? 'Modificar': 'Crear'}}</button>
+</form>
